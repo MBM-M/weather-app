@@ -32,7 +32,7 @@ git clone https://github.com/your-username/weather-app.git
 cd weather-app
 ```
 
-Open `index.html` in your browser or use a local development server.
+Open `dist/index.html` in your browser or use a local development server.
 
 
 ## 📋 Usage
