@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather API app</title>
+</head>
+<body>
+  <form novalidate>
+    <label for="weather-loc">
+      <span>Search for a city or location:</span>
+      <input type="text" id="weather-loc" name="weather-loc">
+    </label>
+  </form>
+  <button>Enter</button>
+  <p id="weather-data"></p>
+  <table id="weather-table" border="1">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temperature</th>
+        <th>Temperature (°C) Min</th>
+        <th>Temperature (°C) Max</th>
+        <th>Conditions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</body>
+</html>
