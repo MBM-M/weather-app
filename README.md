@@ -25,3 +25,15 @@ A sleek and interactive weather forecast application built with JavaScript, HTML
    ```bash
    git clone https://github.com/your-username/weather-app.git
    cd weather-app
+
+2. Open dist/index.html in your browser or use a local development server.
+
+## 📋 Usage
+
+1. Enter a city name in the search bar.
+
+2. Click submit to fetch and display weather data.
+
+3. Use the toggle to switch between Celsius and Fahrenheit.
+
+4. Watch the background and visuals change based on the weather!
