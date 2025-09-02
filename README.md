@@ -32,7 +32,7 @@ git clone https://github.com/your-username/weather-app.git
 cd weather-app
 ```
 
-Open `dist/index.html` in your browser or use a local development server.
+Run `npx webpack` 
 
 
 ## 📋 Usage
