@@ -1,23 +1,23 @@
 import "./style.css";
 
-const weatherData = document.getElementById("weather-data");
-const weatherTableBody = document.querySelector("#weather-table tbody");
-const button = document.querySelector("button");
-
-const API_KEY = process.env.WEATHER_API_KEY;
-
-async function getWeatherData(location) {
+export async function getWeatherData(location, API_KEY) {
   try {
-  const response = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + location + "?unitGroup=metric&key=" + API_KEY + "&contentType=json", {"method": "GET"});
-    const data = await response.json();
-    return data;
-  } catch(e) {
+    const response = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${API_KEY}&contentType=json`,
+      { method: "GET" }
+    );
+    return await response.json();
+  } catch (e) {
     console.error(e);
     return null;
-  };
-};
+  }
+}
 
-function displayWeatherTable(data) {
+export function displayWeatherTable(data, containerElements = {}) {
+  // Accept injected DOM refs for testability
+  const weatherData = containerElements.weatherData || document.getElementById("weather-data");
+  const weatherTableBody = containerElements.weatherTableBody || document.querySelector("#weather-table tbody");
+
   if (!data || !data.days) {
     weatherData.textContent = "Unable to retrieve weather data";
     return;
@@ -57,9 +57,13 @@ function displayWeatherTable(data) {
   })
 }
 
-button.addEventListener("click", async() => {
-  const weatherLocation = document.getElementById("weather-loc").value;
-  const data = await getWeatherData(weatherLocation);
-
-  displayWeatherTable(data);
-});
+// then use these in a short bootstrapping block:
+if (typeof window !== "undefined") {
+  const API_KEY = process.env.WEATHER_API_KEY;
+  const button = document.querySelector("button");
+  button.addEventListener("click", async () => {
+    const weatherLocation = document.getElementById("weather-loc").value;
+    const data = await getWeatherData(weatherLocation, API_KEY);
+    displayWeatherTable(data);
+  });
+}
