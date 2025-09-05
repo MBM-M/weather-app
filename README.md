@@ -69,6 +69,3 @@ Thanks to [The Odin Project](https://www.theodinproject.com/) for providing this
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-[![Build and Deploy](https://github.com/MBM-M/weather-app/actions/workflows/deploy.yml/badge.svg)](https://github.com/MBM-M/weather-app/actions)
-[![Demo](https://img.shields.io/badge/demo-online-green)](https://mbm-m.github.io/weather-app)
